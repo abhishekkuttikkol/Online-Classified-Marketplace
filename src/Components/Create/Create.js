@@ -77,7 +77,7 @@ const Create = () => {
             <br />
           </form>
           <br />
-          <img alt="Posts" width="200px" height="200px" src={image ? URL.createObjectURL(image) : ''}></img>
+          {image && <img alt="Posts" width="200px" height="200px" src={image && URL.createObjectURL(image) }></img>}
          
             <br />
             <input onChange={(e)=>{
