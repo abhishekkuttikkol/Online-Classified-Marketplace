@@ -30,12 +30,14 @@ function View() {
           <p>&#x20B9; {postDetails.price} </p>
           <span>{postDetails.name}</span>
           <p>{postDetails.category}</p>
+          <p> {postDetails.details}</p>
           <span>{postDetails.createdAt}</span>
         </div>
         { userDetails && <div className="contactDetails">
           <p>Seller details</p>
           <p>{userDetails.username}</p>
           <p>{userDetails.phone}</p>
+          
         </div>}
       </div>
     </div>

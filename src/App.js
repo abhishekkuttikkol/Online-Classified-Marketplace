@@ -9,6 +9,10 @@ import Reset from './Components/Reset/Reset';
 import Create from './Pages/Create';
 import ViewPost from './Pages/ViewPost';
 import Post from './Store/PostContext';
+import Search from './Pages/Search';
+import CarsCategory from './Pages/CarsCategory';
+import CatgoryContext from './Store/CategoryContext';
+
 
 function App() {
   const {setUser} = useContext(AuthContext)
@@ -21,6 +25,7 @@ function App() {
   return (
     <div>
       <Post>
+      <CatgoryContext>
       <Router>
         <Switch>
         <Route exact path='/'>
@@ -41,8 +46,16 @@ function App() {
         <Route path='/view post'>
           <ViewPost />
         </Route>
+        <Route path='/search:searchTerm'>
+          <Search />
+        </Route>
+        <Route path='/cars'>
+          <CarsCategory />
+        </Route>
+
         </Switch>
       </Router>
+      </CatgoryContext>
       </Post>
     </div>
   );

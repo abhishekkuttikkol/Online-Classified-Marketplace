@@ -23,12 +23,15 @@
 
 .recommendations .cards {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .moreView .cards {
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -39,6 +42,7 @@
   height: 270px;
   display: inline-block;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .card .favorite {

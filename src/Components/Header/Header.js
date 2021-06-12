@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{ useContext, useState } from 'react';
 
 import './Header.css';
 import OlxLogo from '../../assets/OlxLogo';
@@ -12,25 +12,42 @@ function Header() {
   const {user} = useContext(AuthContext)
   const {Firebase} = useContext(FirebaseContext)
   const history = useHistory()
+  const [search, setSearch] = useState('')
+  const [products, getProducts] = useState([])
+
+  const handleSearch = (e)=>{
+    history.push(`/search:${search}`)
+    e.preventDefault()
+    Firebase.firestore().collection('products').get().then((snapshot)=>{
+      getProducts(snapshot.docs.map((product)=>{
+        return{...product.data(),
+        id : product.id}
+        }))
+        console.log(products)
+    })
+   
+  }
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
-        <div className="brandName">
+        <div onClick={()=>{ history.push('/')} } className="brandName">
           <OlxLogo></OlxLogo>
         </div>
         <div className="placeSearch">
           <Search></Search>
-          <input type="text" />
+          <input type="text" placeholder='India'/>
           <Arrow></Arrow>
         </div>
         <div className="productSearch">
           <div className="input">
             <input
+              value={search}
+              onChange={(e)=>setSearch(e.target.value)}
               type="text"
               placeholder="Find car,mobile phone and more..."
             />
           </div>
-          <div className="searchAction">
+          <div onClick={handleSearch} className="searchAction">
             <Search color="#ffffff"></Search>
           </div>
         </div>

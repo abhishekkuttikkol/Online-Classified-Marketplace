@@ -1,11 +1,13 @@
 import React,{ useEffect, useContext, useState} from 'react';
 import { useHistory } from 'react-router-dom'
 import Heart from '../../assets/Heart';
+import { categoryContext } from '../../Store/CategoryContext';
 import { FirebaseContext } from '../../Store/Context';
 import { PostContext } from '../../Store/PostContext';
 import './Post.css';
 
-function Posts() {
+function Posts({}) {
+  const {category_tab} = useContext(categoryContext)
   const {Firebase} = useContext(FirebaseContext)
   const {setPostDetails} = useContext(PostContext)
   const [products, setProducts] = useState([])
@@ -29,8 +31,7 @@ function Posts() {
         </div>
         <div className="cards">
           {products.map(product=>{
-            
-            return <div onClick={()=>{
+            return category_tab ? product.category === category_tab && <div onClick={()=>{
               setPostDetails(product)
               history.push('/view post')
             }}
@@ -51,7 +52,29 @@ function Posts() {
               <span>{product.createdAt}</span>
             </div>
           </div>
-          })
+          : 
+          <div onClick={()=>{
+            setPostDetails(product)
+            history.push('/view post')
+          }}
+          className="card"
+          >
+          <div className="favorite">
+            <Heart></Heart>
+          </div>
+          <div className="image">
+            <img src={product.url}alt="" />
+          </div>
+          <div className="content">
+            <p className="rate">&#x20B9; {product.price}</p>
+            <span className="kilometer">{product.category}</span>
+            <p className="name">{product.name}</p>
+          </div>
+          <div className="date">
+            <span>{product.createdAt}</span>
+          </div>
+          </div>
+          }) 
         }
         </div>
         </div>

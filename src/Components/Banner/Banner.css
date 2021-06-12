@@ -17,7 +17,9 @@
 }
 
 .bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions {
+  cursor: pointer;
 }
+
 .bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions span {
   padding: 10px;
 }

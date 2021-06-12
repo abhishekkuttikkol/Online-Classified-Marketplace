@@ -4,6 +4,7 @@ import './Create.css';
 import Header from '../Header/Header';
 import {FirebaseContext, AuthContext} from '../../Store/Context'
 import SyncLoader from 'react-spinners/SyncLoader'
+import { MenuItem, Select } from '@material-ui/core';
 
 const Create = () => {
   const [loading, setLoading]  = useState(false)
@@ -13,6 +14,7 @@ const Create = () => {
   const {user} = useContext(AuthContext)
   const [name, setName] = useState('')
   const [category, setCategory] = useState('')
+  const [details, setDetails] = useState('')
   const [price, setPrice] = useState('')
   const [image, setImage] = useState('')
   const date = new Date()
@@ -28,6 +30,7 @@ const Create = () => {
           category,
           price,
           url,
+          details,
           userId:user.uid,
           createdAt:date.toDateString()
         })
@@ -61,9 +64,31 @@ const Create = () => {
             <br />
             <label htmlFor="fname">Category</label>
             <br />
-            <input
+            {/* <input
               value={category}
               onChange={(e)=> setCategory(e.target.value)}
+              className="input"
+              type="text"
+              id="fname"
+              name="category"
+              defaultValue="John"
+            /> */}
+            <Select labelId="" id="select" value={category} onChange={(e)=>setCategory(e.target.value)}>
+            <MenuItem value="10">Cars</MenuItem>
+            <MenuItem value="20">Motorcycles</MenuItem>
+            <MenuItem value="20">For sale : Houses and Apartments</MenuItem>
+            <MenuItem value="20">Gadgets</MenuItem>
+            <MenuItem value="20">Scooters</MenuItem>
+            <MenuItem value="20">Commercial and other</MenuItem>
+            <MenuItem value="20">For rent : Houses and Apartments</MenuItem>
+            <MenuItem value="20">Others</MenuItem>
+            </Select>
+            <br />
+            <label htmlFor="fname">Details</label>
+            <br />
+            <input
+              value={details}
+              onChange={(e)=> setDetails(e.target.value)}
               className="input"
               type="text"
               id="fname"
