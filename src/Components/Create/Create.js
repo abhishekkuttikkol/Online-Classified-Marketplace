@@ -19,6 +19,7 @@ const Create = () => {
   const [image, setImage] = useState('')
   const date = new Date()
   const history = useHistory()
+  console.log(category)
 
   const handleSubmit = ()=>{
     setLoading(true)
@@ -74,14 +75,14 @@ const Create = () => {
               defaultValue="John"
             /> */}
             <Select labelId="" id="select" value={category} onChange={(e)=>setCategory(e.target.value)}>
-            <MenuItem value="10">Cars</MenuItem>
-            <MenuItem value="20">Motorcycles</MenuItem>
-            <MenuItem value="20">For sale : Houses and Apartments</MenuItem>
-            <MenuItem value="20">Gadgets</MenuItem>
-            <MenuItem value="20">Scooters</MenuItem>
-            <MenuItem value="20">Commercial and other</MenuItem>
-            <MenuItem value="20">For rent : Houses and Apartments</MenuItem>
-            <MenuItem value="20">Others</MenuItem>
+            <MenuItem value="Car">Cars</MenuItem>
+            <MenuItem value="Motorcycle">Motorcycles</MenuItem>
+            <MenuItem value="For sale">For sale : Houses and Apartments</MenuItem>
+            <MenuItem value="Gadgets">Gadgets</MenuItem>
+            <MenuItem value="Scooters">Scooters</MenuItem>
+            <MenuItem value="Commercial">Commercial and other</MenuItem>
+            <MenuItem value="For rent">For rent : Houses and Apartments</MenuItem>
+            <MenuItem value="">Others</MenuItem>
             </Select>
             <br />
             <label htmlFor="fname">Details</label>

@@ -3,7 +3,7 @@ import React,{ useContext } from 'react';
 import './Banner.css';
 import Arrow from '../../assets/Arrow'
 import { categoryContext } from '../../Store/CategoryContext';
-function Banner() {
+function Banner({banner_img}) {
   const {setCategory_tab} = useContext(categoryContext)
   return (
     <div className="bannerParentDiv">
@@ -25,18 +25,28 @@ function Banner() {
             <span onClick={()=>{
                 setCategory_tab('Gadgets')
             }}>Mobile Ph...</span>
-            <span>For Sale:Houses & Apart...</span>
-            <span>Scoot...</span>
-            <span>Commercial & Other Ve...</span>
-            <span>For Rent: House & Apart...</span>
+            <span onClick={()=>{
+                setCategory_tab('For sale')
+            }}>For Sale:Houses & Apart...</span>
+            <span onClick={()=>{
+                setCategory_tab('Scooters')
+            }}>Scoot...</span>
+            <span onClick={()=>{
+                setCategory_tab('Commercial')
+            }}>Commercial & Other Ve...</span>
+            <span onClick={()=>{
+                setCategory_tab('For rent')
+            }}>For Rent: House & Apart...</span>
           </div>
         </div>
+        { banner_img &&
         <div className="banner">
           <img
             src="../../../Images/banner copy.png"
             alt=""
           />
         </div>
+        }
       </div>
       
     </div>

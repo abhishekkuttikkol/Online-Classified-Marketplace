@@ -1,9 +1,16 @@
 import React from 'react'
+import Banner from '../Components/Banner/Banner'
+import Footer from '../Components/Footer/Footer'
+import Header from '../Components/Header/Header'
+import Posts from '../Components/Posts/Posts'
 
 function Search() {
     return (
         <div>
-            <h1>hello search</h1>
+            <Header/>
+            <Banner/>
+            <Posts />
+            <Footer />
         </div>
     )
 }

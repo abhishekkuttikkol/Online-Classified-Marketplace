@@ -28,10 +28,11 @@
 
 .moreView .cards {
   white-space: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  /* overflow-x: scroll;
+  overflow-y: hidden; */
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .card {
