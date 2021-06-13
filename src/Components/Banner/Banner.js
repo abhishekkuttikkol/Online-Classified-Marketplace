@@ -7,6 +7,7 @@ function Banner({banner_img}) {
   const {setCategory_tab} = useContext(categoryContext)
   return (
     <div className="bannerParentDiv">
+      <div className='navbar'>
       <div className="bannerChildDiv">
         <div className="menuBar">
           <div className="categoryMenu">
@@ -24,7 +25,7 @@ function Banner({banner_img}) {
             }}>Motorcy...</span>
             <span onClick={()=>{
                 setCategory_tab('Gadgets')
-            }}>Mobile Ph...</span>
+            }}>Gadgets</span>
             <span onClick={()=>{
                 setCategory_tab('For sale')
             }}>For Sale:Houses & Apart...</span>
@@ -49,6 +50,7 @@ function Banner({banner_img}) {
         }
       </div>
       
+    </div>
     </div>
   );
 }

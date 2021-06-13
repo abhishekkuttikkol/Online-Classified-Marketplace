@@ -13,7 +13,6 @@ export default function Signup() {
   const {Firebase} = useContext(FirebaseContext)
   const history = useHistory()
   const [loading, setLoading]  = useState(false)
- 
   const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
 
   const handleLogin = (e)=> {

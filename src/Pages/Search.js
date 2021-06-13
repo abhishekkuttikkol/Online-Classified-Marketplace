@@ -11,13 +11,13 @@ function Search() {
     const {searchTerm} = useContext(SearchCategory)
     const {setCategory_tab} = useContext(categoryContext)
     const history = useHistory()
-    if(searchTerm === 'car' || searchTerm === 'cars'){ setCategory_tab('Car')}
-    if(searchTerm === 'motorcycle' || searchTerm === 'motorcycles' || searchTerm === 'bikes' || searchTerm === 'bike'){ setCategory_tab('Motorcycle')}
-    if(searchTerm === 'gadgets' || searchTerm === 'gadget'){ setCategory_tab('Gadgets')}
-    if(searchTerm === 'for sale' || searchTerm === 'for sales'){ setCategory_tab('For sale')}
-    if(searchTerm === 'scooters' || searchTerm === 'scooter'){ setCategory_tab('Scooters')}
-    if(searchTerm === 'commercial' || searchTerm === 'commercials'){ setCategory_tab('Commercial')}
-    if(searchTerm === 'for rent' || searchTerm === 'for rents'){ setCategory_tab('For rent')}
+    if(searchTerm === 'car' || searchTerm === 'cars' || searchTerm === 'Car' || searchTerm === 'Cars'){ setCategory_tab('Car')}
+    if(searchTerm === 'motorcycle' || searchTerm === 'motorcycles' || searchTerm === 'bikes' || searchTerm === 'bike' || searchTerm === 'Bike' || searchTerm === 'Bikes'){ setCategory_tab('Motorcycle')}
+    if(searchTerm === 'gadgets' || searchTerm === 'gadget' || searchTerm === 'Gadget' || searchTerm === 'Gadgets'){ setCategory_tab('Gadgets')}
+    if(searchTerm === 'for sale' || searchTerm === 'for sales' || searchTerm === 'For sale' || searchTerm === 'For sales'){ setCategory_tab('For sale')}
+    if(searchTerm === 'scooters' || searchTerm === 'scooter' || searchTerm === 'Scooters' || searchTerm === 'Scooter'){ setCategory_tab('Scooters')}
+    if(searchTerm === 'commercial' || searchTerm === 'commercials' || searchTerm === 'Commercial' || searchTerm === 'Commercials'){ setCategory_tab('Commercial')}
+    if(searchTerm === 'for rent' || searchTerm === 'for rents' || searchTerm === 'For rent' || searchTerm === 'For rents'){ setCategory_tab('For rent')}
     history.listen(()=>{
         if(history.action === 'POP'){
             setCategory_tab('')

@@ -1,11 +1,11 @@
 .moreView {
   margin: 16px 16px 24px;
-  padding: 16px 16px 32px;
+  padding: 16px 60px 32px;
   background-color: #ebeeef;
   border-radius: 4px;
 }
 
-.heading {
+.heading {  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,6 +24,7 @@
 .recommendations .cards {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 64px;
 }
 
 .moreView .cards {
@@ -89,4 +90,54 @@
 .recommendations .heading span {
   font-size: 24px;
   color: #002f34;
+}
+
+@media only screen and (max-width: 700px){
+    .card{
+      margin-right: 7px;
+      display: flex;
+      width: 154px;
+      height: 270px;
+    }
+    .recommendations .cards {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .moreView {
+      margin: 16px 10px 24px;
+      padding: 16px 9px 32px;
+      background-color: #ebeeef;
+      border-radius: 4px;
+    }
+    .recommendations .cards {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 0px;
+    }
+    
+}
+
+@media only screen and (max-width: 321px){
+  .card{
+    margin-right: px;
+    display: flex;
+    width: 220px;
+    height: 270px;
+  }
+  .recommendations .cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .moreView {
+    margin: 16px 10px 24px;
+    padding: 16px 9px 32px;
+    background-color: #ebeeef;
+    border-radius: 4px;
+  }
+  .recommendations .cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+  }
+  
 }

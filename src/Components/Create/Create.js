@@ -82,7 +82,6 @@ const Create = () => {
             <MenuItem value="Scooters">Scooters</MenuItem>
             <MenuItem value="Commercial">Commercial and other</MenuItem>
             <MenuItem value="For rent">For rent : Houses and Apartments</MenuItem>
-            <MenuItem value="">Others</MenuItem>
             </Select>
             <br />
             <label htmlFor="fname">Details</label>

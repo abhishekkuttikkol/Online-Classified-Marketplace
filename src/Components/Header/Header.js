@@ -1,5 +1,4 @@
 import React,{ useContext, useState } from 'react';
-
 import './Header.css';
 import OlxLogo from '../../assets/OlxLogo';
 import Search from '../../assets/Search';
@@ -33,7 +32,8 @@ function Header() {
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
-        <div onClick={()=>{ history.push('/')} } className="brandName">
+        <div onClick={()=>{ 
+          history.push('/')} } className="brandName">
           <OlxLogo></OlxLogo>
         </div>
         <div className="placeSearch">
