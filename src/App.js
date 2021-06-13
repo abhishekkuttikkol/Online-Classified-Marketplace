@@ -12,6 +12,7 @@ import Post from './Store/PostContext';
 import Search from './Pages/Search';
 import CarsCategory from './Pages/CarsCategory';
 import CatgoryContext from './Store/CategoryContext';
+import SearchContext from './Store/SearchContext';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     <div>
       <Post>
       <CatgoryContext>
+        <SearchContext>
       <Router>
         <Switch>
         <Route exact path='/'>
@@ -55,6 +57,7 @@ function App() {
 
         </Switch>
       </Router>
+      </SearchContext>
       </CatgoryContext>
       </Post>
     </div>

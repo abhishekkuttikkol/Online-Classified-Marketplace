@@ -6,7 +6,7 @@ import { FirebaseContext } from '../../Store/Context';
 import { PostContext } from '../../Store/PostContext';
 import './Post.css';
 
-function Posts({}) {
+function Posts({search}) {
   const {category_tab} = useContext(categoryContext)
   const {Firebase} = useContext(FirebaseContext)
   const {setPostDetails} = useContext(PostContext)

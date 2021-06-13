@@ -8,8 +8,10 @@ import SellButton from '../../assets/SellButton';
 import SellButtonPlus from '../../assets/SellButtonPlus';
 import { AuthContext, FirebaseContext } from '../../Store/Context';
 import { useHistory } from 'react-router';
+import { SearchCategory } from '../../Store/SearchContext';
 function Header() {
   const {user} = useContext(AuthContext)
+  const {SetSearchTerm} = useContext(SearchCategory)
   const {Firebase} = useContext(FirebaseContext)
   const history = useHistory()
   const [search, setSearch] = useState('')
@@ -18,13 +20,14 @@ function Header() {
   const handleSearch = (e)=>{
     history.push(`/search:${search}`)
     e.preventDefault()
-    Firebase.firestore().collection('products').get().then((snapshot)=>{
-      getProducts(snapshot.docs.map((product)=>{
-        return{...product.data(),
-        id : product.id}
-        }))
-        console.log(products)
-    })
+    SetSearchTerm(search)
+    // Firebase.firestore().collection('products').get().then((snapshot)=>{
+    //   getProducts(snapshot.docs.map((product)=>{
+    //     return{...product.data(),
+    //     id : product.id}
+    //     }))
+    //     console.log(products)
+    // })
    
   }
   return (
