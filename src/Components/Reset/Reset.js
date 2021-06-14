@@ -20,7 +20,7 @@ function Reset() {
     return (
        <div>
            <div className="loginParentDiv">
-            <img width="200px" height="200px" src={Logo}></img>
+            <img width="200px" height="200px" src={Logo} alt=''></img>
             <form onSubmit={handleReset}>
                 <label htmlFor="fname">Email id</label>
                 <br />

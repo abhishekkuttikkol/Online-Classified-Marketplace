@@ -4,11 +4,13 @@ import Heart from '../../assets/Heart';
 import { categoryContext } from '../../Store/CategoryContext';
 import { FirebaseContext } from '../../Store/Context';
 import { PostContext } from '../../Store/PostContext';
+import { SearchCategory } from '../../Store/SearchContext';
 import './Post.css';
 
 function Posts({search}) {
   const {category_tab} = useContext(categoryContext)
   const {Firebase} = useContext(FirebaseContext)
+  const {searchTerm} = useContext(SearchCategory)
   const {setPostDetails} = useContext(PostContext)
   const [products, setProducts] = useState([])
   const history = useHistory()
@@ -20,6 +22,7 @@ function Posts({search}) {
       })
       setProducts(allPosts)
     })
+    
   }, [])
 
   return (
@@ -30,7 +33,15 @@ function Posts({search}) {
           <span>View more</span>
         </div>
         <div className="cards">
-          {products.map(product=>{
+          {products.filter((product)=>{
+            if (searchTerm == undefined){
+              return product
+            } else if (product.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                return product
+            } else if (product.category.toLowerCase().includes(searchTerm.toLowerCase())){
+                return product
+            }
+          }).map(product=>{
             return category_tab ? product.category === category_tab && <div onClick={()=>{
               setPostDetails(product)
               history.push('/view post')
@@ -77,6 +88,7 @@ function Posts({search}) {
           }) 
         }
         </div>
+        {/* <button onClick={loadMore} className="load-button">load more</button> */}
         </div>
         <div className="recommendations">
         <div className="heading">

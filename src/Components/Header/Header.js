@@ -1,4 +1,4 @@
-import React,{ useContext, useState } from 'react';
+import React,{ useContext, useEffect, useState } from 'react';
 import './Header.css';
 import OlxLogo from '../../assets/OlxLogo';
 import Search from '../../assets/Search';
@@ -15,7 +15,7 @@ function Header() {
   const history = useHistory()
   const [search, setSearch] = useState('')
   const [products, getProducts] = useState([])
-
+  
   const handleSearch = (e)=>{
     history.push(`/search:${search}`)
     e.preventDefault()
