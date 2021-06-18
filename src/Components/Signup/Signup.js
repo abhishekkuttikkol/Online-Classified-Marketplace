@@ -42,7 +42,7 @@ export default function Signup() {
       </div>
         :
         <div className="signupParentDiv">
-        <img width="200px" height="200px" src={Logo}></img>
+        <img width="200px" height="200px" src={Logo} alt=''></img>
         <form onSubmit={handleLogin}>
           <label htmlFor="fname">Username</label>
           <br />
@@ -97,9 +97,9 @@ export default function Signup() {
           <p style={{color:'red'}}>password contain 6 letters</p>
           <button>Signup</button>
         </form>
-        <a onClick={()=>{
+        <p onClick={()=>{
           history.push('/login')
-        }}>Login</a>
+        }}>Login</p>
       </div>
       
        

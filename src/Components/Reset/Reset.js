@@ -37,9 +37,9 @@ function Reset() {
                 <br/>
                 <button>Reset password</button>
                 </form>
-                <a onClick={()=>{
+                <p id='login' onClick={()=>{
                     history.push('/login')
-                 }}>Log in</a>
+                 }}>Log in</p>
                 </div>
         </div>
       

@@ -10,9 +10,12 @@ import Create from './Pages/Create';
 import ViewPost from './Pages/ViewPost';
 import Post from './Store/PostContext';
 import Search from './Pages/Search';
-import CarsCategory from './Pages/CarsCategory';
+
 import CatgoryContext from './Store/CategoryContext';
 import SearchContext from './Store/SearchContext';
+import Favourite from './Pages/Favourite';
+import FavPosts from './Pages/FavPosts';
+
 
 
 function App() {
@@ -51,10 +54,13 @@ function App() {
         <Route path='/search:searchTerm'>
           <Search />
         </Route>
-        <Route path='/cars'>
-          <CarsCategory />
+        <Route path='/favourite'>
+          <Favourite />
         </Route>
-
+        <Route path='/favourite posts'>
+          <Favourite />
+        </Route>
+          <FavPosts/>
         </Switch>
       </Router>
       </SearchContext>

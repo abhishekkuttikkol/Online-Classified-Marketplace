@@ -1,12 +1,12 @@
-import React,{ useState, useContext, useEffect } from 'react';
-import { AuthContext, FirebaseContext } from '../../Store/Context';
-import { PostContext } from '../../Store/PostContext';
-import Heart from '../../assets/Heart';
+import React, { useContext, useEffect, useState } from 'react'
+import Heart from '../assets/Heart'
+import Header from '../Components/Header/Header'
+import { AuthContext, FirebaseContext } from '../Store/Context'
+import { PostContext } from '../Store/PostContext'
+import './FavPost.css'
 
-import './View.css';
-function View() {
- 
-  const [userDetails, setUserDetails] = useState()
+function FavPosts() {
+    const [userDetails, setUserDetails] = useState()
   const {postDetails} = useContext(PostContext)
   const {Firebase} = useContext(FirebaseContext)
   const {user} = useContext(AuthContext)
@@ -14,29 +14,22 @@ function View() {
     const {userId} = postDetails
     console.log(postDetails)
     Firebase.firestore().collection('users').where('id', '==', postDetails.userId).get().then((result)=>{
-     
       result.forEach(doc => {
         setUserDetails(doc.data())
       });
     })
   }, [])
+
   const favourite = (e)=>{
     console.log('clicked')
-    console.log(postDetails)
-    Firebase.firestore().collection('favourite').add({
-      favid : user.uid,
-      userId : userDetails.id,
-      createdAt : postDetails.createdAt,
-      category : postDetails.category,
-      name : postDetails.name,
-      price : postDetails.price,
-      url : postDetails.url
+    Firebase.firestore().collection("favourite").doc(postDetails.id).delete().then(()=>{
+        alert('Succesfully removed from favourites')
     })
-    
-    alert('The Product is added to Favourites')
   }
-  
-   return (
+
+  return (
+    <div>
+    <Header/>
     <div className="viewParentDiv">
       <div className="imageShowDiv">
         <img
@@ -45,7 +38,7 @@ function View() {
         />
       </div>
       <div className="rightSection">
-        {user && <p><button onClick={favourite} className='fav-button'><Heart/>Add to Favourites</button></p>}
+        {user && <p><button onClick={favourite} className='fav-button'><Heart/>Remove from Favourites</button></p>}
         <div className="productDetails">
           <p>&#x20B9; {postDetails.price} </p>
           <span>{postDetails.name}</span>
@@ -63,6 +56,9 @@ function View() {
         </div>}
       </div>
     </div>
+    </div>
+
   );
 }
-export default View;
+
+export default FavPosts

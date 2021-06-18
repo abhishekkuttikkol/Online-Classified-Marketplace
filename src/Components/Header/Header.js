@@ -1,4 +1,4 @@
-import React,{ useContext, useEffect, useState } from 'react';
+import React,{ useContext, useState } from 'react';
 import './Header.css';
 import OlxLogo from '../../assets/OlxLogo';
 import Search from '../../assets/Search';
@@ -11,11 +11,11 @@ import { SearchCategory } from '../../Store/SearchContext';
 function Header() {
   const {user} = useContext(AuthContext)
   const {SetSearchTerm} = useContext(SearchCategory)
-  const {Firebase} = useContext(FirebaseContext)
+  const {Firebase} = useContext(FirebaseContext) 
   const history = useHistory()
   const [search, setSearch] = useState('')
-  const [products, getProducts] = useState([])
-  
+  // const [products, getProducts] = useState([])
+
   const handleSearch = (e)=>{
     history.push(`/search:${search}`)
     e.preventDefault()
@@ -29,6 +29,7 @@ function Header() {
     // })
    
   }
+  
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
@@ -55,7 +56,7 @@ function Header() {
           </div>
         </div>
         <div className="language">
-          <span> ENGLISH </span>
+          <span > ENGLISH </span>
           <Arrow></Arrow>
         </div>
         <div className="loginPage">

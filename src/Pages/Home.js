@@ -10,7 +10,7 @@ function Home(props) {
   const {SetSearchTerm} = useContext(SearchCategory)
   useEffect(() => {
     SetSearchTerm()
-  }, [])
+  })
   return (
     <div className="homeParentDiv">
       <Header />

@@ -32,7 +32,7 @@ function Login() {
       </div>
         :
       <div className="loginParentDiv">
-        <img width="200px" height="200px" src={Logo}></img>
+        <img width="200px" height="200px" src={Logo} alt=''></img>
         <form onSubmit={handleLogin}>
           <label htmlFor="fname">Email</label>
           <br />
@@ -61,12 +61,12 @@ function Login() {
           <br />
           <button>Login</button>
         </form>
-        <a onClick={()=>{
+        <p onClick={()=>{
           history.push('/signup')
-        }}>Signup</a>
-        <a onClick={()=>{
+        }}>Signup</p>
+        <p onClick={()=>{
           history.push('/reset password')
-        }}>Forgotten password ?</a>
+        }}>Forgotten password ?</p>
       </div>
     }
     </div>

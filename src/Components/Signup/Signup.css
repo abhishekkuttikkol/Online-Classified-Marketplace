@@ -1,7 +1,7 @@
 .signupParentDiv {
     border: 1px solid black;
     width: max-content;
-    padding: 10px 60px;
+    padding: 0px 60px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -31,7 +31,7 @@
     border: 2px solid #002f34;
   }
   
-  .signupParentDiv a {
+  .signupParentDiv p {
     display: flex;
     justify-content: center;
     cursor: pointer;
