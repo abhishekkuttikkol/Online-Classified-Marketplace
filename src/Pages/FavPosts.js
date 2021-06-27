@@ -38,7 +38,7 @@ function FavPosts() {
         />
       </div>
       <div className="rightSection">
-        {user && <p><button onClick={favourite} className='fav-button'><Heart/>Remove from Favourites</button></p>}
+        {user && <p><button onClick={() => {if(window.confirm('Remove this item from Favourites?')){favourite()};}} className='fav-button'><Heart/>Remove from Favourites</button></p>}
         <div className="productDetails">
           <p>&#x20B9; {postDetails.price} </p>
           <span>{postDetails.name}</span>

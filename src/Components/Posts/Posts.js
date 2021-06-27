@@ -107,7 +107,7 @@ function Posts({search}) {
           <span>Fresh recommendations</span>
         </div>
         <div className="cards">
-        {products.slice(0, 20).map(product=>{
+        {products.slice(0, 10).map(product=>{
             
             return <div 
             onClick={()=>{

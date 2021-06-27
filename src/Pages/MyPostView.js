@@ -1,44 +1,36 @@
-import React,{ useState, useContext, useEffect } from 'react';
-import { AuthContext, FirebaseContext } from '../../Store/Context';
-import { PostContext } from '../../Store/PostContext';
-import Heart from '../../assets/Heart';
+import React, { useContext, useEffect, useState } from 'react'
+import Heart from '../assets/Heart'
+import Header from '../Components/Header/Header'
+import { AuthContext, FirebaseContext } from '../Store/Context'
+import { PostContext } from '../Store/PostContext'
+import './FavPost.css'
 
-import './View.css';
-import { useHistory } from 'react-router-dom';
-function View() {
-  const history = useHistory()
-  const [userDetails, setUserDetails] = useState()
+function MyPostView() {
+    const [userDetails, setUserDetails] = useState()
   const {postDetails} = useContext(PostContext)
   const {Firebase} = useContext(FirebaseContext)
   const {user} = useContext(AuthContext)
- 
   useEffect(() => {
     const {userId} = postDetails
+    console.log(postDetails)
     Firebase.firestore().collection('users').where('id', '==', postDetails.userId).get().then((result)=>{
       result.forEach(doc => {
         setUserDetails(doc.data())
       });
     })
   }, [])
-  const favourite = (e)=>{
+  console.log(postDetails)
+  const deletePost = (e)=>{
     console.log('clicked')
-    Firebase.firestore().collection('favourite').add({
-      favid : user.uid,
-      userId : userDetails.id,
-      createdAt : postDetails.createdAt,
-      category : postDetails.category,
-      name : postDetails.name,
-      price : postDetails.price,
-      url : postDetails.url
+    Firebase.firestore().collection("products").doc(postDetails.id).delete().then(()=>{
+        alert('Succesfully Deleted..')
     })
-    
-    alert('The Product is added to Favourites')
+    Firebase.firestore().collection("favourite").doc(postDetails.id).delete()
   }
-  
- 
- 
-  console.log(postDetails.userId)
-   return (
+
+  return (
+    <div>
+    <Header/>
     <div className="viewParentDiv">
       <div className="imageShowDiv">
         <img
@@ -47,7 +39,7 @@ function View() {
         />
       </div>
       <div className="rightSection">
-        {user && <p><button onClick={favourite} className='fav-button'><Heart/>Add to Favourites</button></p>}
+        {user && <p><button onClick={() => {if(window.confirm('Are you sure want to delete this post?')){deletePost()};}} className='fav-button'><Heart/>Delete Post</button></p>}
         <div className="productDetails">
           <p>&#x20B9; {postDetails.price} </p>
           <span>{postDetails.name}</span>
@@ -55,7 +47,6 @@ function View() {
           <p> {postDetails.details}</p>
           <span>{postDetails.createdAt}</span>
         </div>
-        {user && <p><button onClick={()=>history.push('/chat')} className='fav-button'>Contact</button></p>}
         { userDetails && <div className="contactDetails">
           <p>Seller details</p>
           <p>{userDetails.username}</p>
@@ -66,6 +57,10 @@ function View() {
         </div>}
       </div>
     </div>
+    </div>
+
   );
 }
-export default View;
+
+
+export default MyPostView

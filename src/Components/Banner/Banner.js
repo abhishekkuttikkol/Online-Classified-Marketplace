@@ -30,6 +30,8 @@ function Banner({banner_img}) {
             <ul id="menu">
               <p><li onClick={()=> history.push('/login') }>{user ? '' : 'Login' }</li></p>
               {user && <p ><li onClick={()=> history.push('/favourite')} >Favourites</li></p>}
+              {user && <p ><li onClick={()=> history.push('/my posts')} >My Posts</li></p>}
+              {user && <p ><li onClick={()=> history.push('/chat home')} >ChatRoom</li></p>}
               <p><li onClick={()=> setCategory_tab('')}>All Category</li></p>
               <p ><li onClick={()=> setCategory_tab('Motorcycle')   }>Motorcycles</li></p>
               <p ><li onClick={()=> setCategory_tab('Gadgets')} >Gadgets</li></p>
@@ -66,9 +68,16 @@ function Banner({banner_img}) {
             <span onClick={()=>{
                 setCategory_tab('For rent')
             }}>For Rent: House & Apart...</span>
-            <span onClick={()=>{
+            {user && <span onClick={()=>{
                 history.push('/favourite')
-            }}>Favourite</span>
+            }}>Favourite</span>}
+            {user && <span onClick={()=>{
+                history.push('/my posts')
+            }}>My Posts</span>}
+            {user && <span onClick={()=>{
+                history.push('/chat home')
+            }}>Messages</span>}
+            
           </div>
         </div>
         { banner_img &&

@@ -17,8 +17,8 @@ function Header() {
   // const [products, getProducts] = useState([])
 
   const handleSearch = (e)=>{
-    history.push(`/search:${search}`)
     e.preventDefault()
+    history.push(`/search:${search}`)
     SetSearchTerm(search)
     // Firebase.firestore().collection('products').get().then((snapshot)=>{
     //   getProducts(snapshot.docs.map((product)=>{
@@ -42,6 +42,7 @@ function Header() {
           <input type="text" placeholder='India'/>
           <Arrow></Arrow>
         </div>
+        <form onSubmit={handleSearch}>
         <div className="productSearch">
           <div className="input">
             <input
@@ -51,10 +52,11 @@ function Header() {
               placeholder="Find car,mobile phone and more..."
             />
           </div>
-          <div onClick={handleSearch} className="searchAction">
+          <div type='submit' onClick={handleSearch} className="searchAction">
             <Search color="#ffffff"></Search>
           </div>
         </div>
+        </form>
         <div className="language">
           <span > ENGLISH </span>
           <Arrow></Arrow>

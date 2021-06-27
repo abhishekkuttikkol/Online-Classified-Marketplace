@@ -15,6 +15,10 @@ import CatgoryContext from './Store/CategoryContext';
 import SearchContext from './Store/SearchContext';
 import Favourite from './Pages/Favourite';
 import FavPosts from './Pages/FavPosts';
+import ChatHome from './Pages/ChatHome';
+import Chat from './Pages/Chat';
+import MyPosts from './Pages/MyPosts';
+import MyPostView from './Pages/MyPostView';
 
 
 
@@ -57,8 +61,20 @@ function App() {
         <Route path='/favourite'>
           <Favourite />
         </Route>
+        <Route path='/chat home'>
+          <ChatHome/>
+        </Route>
+        <Route path='/chat'>
+          <Chat/>
+        </Route>
         <Route path='/favourite posts'>
           <Favourite />
+        </Route>
+        <Route path='/my posts'>
+          <MyPosts />
+        </Route>
+        <Route path='/my posts view'>
+          <MyPostView />
         </Route>
           <FavPosts/>
         </Switch>
