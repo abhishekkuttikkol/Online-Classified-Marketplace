@@ -95,8 +95,6 @@
   margin-right: 5px;
 }
 
-
-
 .span {
   text-decoration: none;
   font-size: 16px;
@@ -112,7 +110,7 @@
   height: 2px;
 }
 
-.loginPage a{
+.loginPage a {
   text-decoration: none;
 }
 
@@ -155,17 +153,15 @@
   margin-left: 5px;
 }
 
-
-
-.logout{
+.logout {
   cursor: pointer;
 }
 
-.login{
+.login {
   cursor: pointer;
 }
 @media only screen and (max-width: 700px) {
-  .placeSearch{
+  .placeSearch {
     display: none;
   }
   .headerParentDiv {
@@ -175,10 +171,10 @@
     width: 100vw;
     z-index: 999;
   }
-  .language{
+  .language {
     display: none;
   }
-  .productSearch{
+  .productSearch {
     display: flex;
     width: 200px;
     margin-left: 10px;
@@ -187,11 +183,10 @@
   .sellMenu {
     display: flex;
   }
-  .logout{
+  .logout {
     display: none;
   }
-  .login{
+  .login {
     display: none;
   }
 }
-

@@ -5,7 +5,7 @@
   border-radius: 4px;
 }
 
-.heading {  
+.heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +33,6 @@
   overflow-y: hidden; */
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .card {
@@ -47,10 +46,10 @@
   margin-top: 15px;
   transition-duration: 0.4s;
 }
-.card:hover{
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+.card:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
-
 
 .card .favorite {
   display: flex;
@@ -96,8 +95,58 @@
   font-size: 24px;
   color: #002f34;
 }
-.load-button{
+.load-button {
   position: absolute;
+  /* top: 50%; */
+  align-items: center;
+  left: 37%;
+  margin-top: 15px;
+  border-radius: 5px;
+  background-color: white;
+  border: none;
+  border: 1px solid black;
+  height: 40px;
+  transition-duration: 0.4s;
+  width: 25%;
+}
+
+.load-button:hover {
+  background-color: black; /* Green */
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  width: 50%;
+  left: 25%;
+}
+@media only screen and (max-width: 700px) {
+  .card {
+    margin-right: 7px;
+    display: flex;
+    width: 154px;
+    height: 270px;
+    transition-duration: 0.4s;
+  }
+  .card:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
+  .recommendations .cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .moreView {
+    margin: 16px 10px 24px;
+    padding: 16px 9px 70px;
+    background-color: #ebeeef;
+    border-radius: 4px;
+  }
+  .recommendations .cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0px;
+  }
+  .load-button {
+    position: absolute;
     /* top: 50%; */
     align-items: center;
     left: 37%;
@@ -109,71 +158,23 @@
     height: 40px;
     transition-duration: 0.4s;
     width: 25%;
+  }
+
+  .load-button:hover {
+    background-color: black; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+    left: 25%;
+  }
 }
 
-.load-button:hover{
-  background-color: black; /* Green */
-  color: white;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  width: 50%;
-  left: 25%;
-}
-@media only screen and (max-width: 700px){
-    .card{
-      margin-right: 7px;
-      display: flex;
-      width: 154px;
-      height: 270px; 
-       transition-duration: 0.4s;
-    }
-    .card:hover{
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-    .recommendations .cards {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .moreView {
-      margin: 16px 10px 24px;
-      padding: 16px 9px 70px;
-      background-color: #ebeeef;
-      border-radius: 4px;
-    }
-    .recommendations .cards {
-      display: flex;
-      flex-wrap: wrap;
-      margin-left: 0px;
-    }
-    .load-button{
-      position: absolute;
-        /* top: 50%; */
-        align-items: center;
-        left: 37%;
-        margin-top: 15px;
-        border-radius: 5px;
-        background-color: white;
-        border: none;
-        border: 1px solid black;
-        height: 40px;
-        transition-duration: 0.4s;
-        width: 25%;
-    }
-    
-    .load-button:hover{
-      background-color: black; /* Green */
-      color: white;
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-      width: 50%;
-      left: 25%;
-    }
-    
-}
-
-@media only screen and (max-width: 321px){
-  .card{
+@media only screen and (max-width: 321px) {
+  .card {
     margin-right: px;
     display: flex;
-    width: 220px; 
+    width: 220px;
     height: 270px;
   }
   .recommendations .cards {
@@ -191,5 +192,4 @@
     flex-wrap: wrap;
     margin-left: 20px;
   }
-  
 }
