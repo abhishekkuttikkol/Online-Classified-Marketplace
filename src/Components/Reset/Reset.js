@@ -8,7 +8,7 @@ function Reset() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const { Firebase } = useContext(FirebaseContext);
-
+ 
   const handleReset = (e) => {
     e.preventDefault();
     Firebase.auth()
@@ -20,7 +20,12 @@ function Reset() {
   return (
     <div>
       <div className="loginParentDiv">
-        <img width="200px" height="200px" src={Logo} alt=""></img>
+        {/* <img width="200px" height="200px" src={Logo} alt=""></img> */}
+        <img
+            style={{ width: "100px", marginBlock: "0px", marginInline: "40px" }}
+            src="http://www.softmantra.com/img/classified-ad-posting-services.png"
+            alt=""
+          />
         <form onSubmit={handleReset}>
           <label htmlFor="fname">Email id</label>
           <br />

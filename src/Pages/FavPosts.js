@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Heart from "../assets/Heart";
 import Header from "../Components/Header/Header";
 import { AuthContext, FirebaseContext } from "../Store/Context";
@@ -6,6 +7,7 @@ import { PostContext } from "../Store/PostContext";
 import "./FavPost.css";
 
 function FavPosts() {
+  const history = useHistory();
   const [userDetails, setUserDetails] = useState();
   const { postDetails } = useContext(PostContext);
   const { Firebase } = useContext(FirebaseContext);
@@ -26,6 +28,7 @@ function FavPosts() {
 
   const favourite = (e) => {
     console.log("clicked");
+
     Firebase.firestore()
       .collection("favourite")
       .doc(postDetails.id)
@@ -33,6 +36,7 @@ function FavPosts() {
       .then(() => {
         alert("Succesfully removed from favourites");
       });
+    history.push("/");
   };
 
   return (

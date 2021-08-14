@@ -43,22 +43,32 @@ function Chat() {
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         id: collectionId,
       });
+
+      Firebase.firestore().collection("messages").doc(collectionId).set({
+        userName: user.displayName,
+        from: user.uid,
+        to: postDetails.userId,
+        messages: input,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
     }
     if (flag == false) {
-      Firebase.firestore().collection(revCollectionId).add({
+      Firebase.firestore().collection(revCollectionId).set({
         userName: user.displayName,
         message: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         id: revCollectionId,
       });
+
+      Firebase.firestore().collection("messages").doc(revCollectionId).set({
+        userName: user.displayName,
+        from: user.uid,
+        to: postDetails.userId,
+        messages: input,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
     }
-    Firebase.firestore().collection("messages").add({
-      userName: user.displayName,
-      from: user.uid,
-      to: postDetails.userId,
-      messages: input,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+
     setInput("");
   };
   console.log(messages);

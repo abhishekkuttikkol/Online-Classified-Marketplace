@@ -10,8 +10,10 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { MenuItem, Select } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 function MyPostView() {
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
   const style = {
     position: "fixed",
@@ -63,6 +65,7 @@ function MyPostView() {
         alert("Succesfully Deleted..");
       });
     Firebase.firestore().collection("favourite").doc(postDetails.id).delete();
+    history.push("/my posts");
   };
 
   const editPost = (e) => {

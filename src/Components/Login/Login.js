@@ -28,7 +28,11 @@ function Login() {
         history.push("/");
       })
       .catch((error) => {
+        setLoading(false);
         alert(error.message);
+        setEmail('')
+        setPassword('')
+        history.push('/login')
       });
   };
   return (
