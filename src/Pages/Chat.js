@@ -53,7 +53,7 @@ function Chat() {
       });
     }
     if (flag == false) {
-      Firebase.firestore().collection(revCollectionId).set({
+      Firebase.firestore().collection(revCollectionId).add({
         userName: user.displayName,
         message: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
